@@ -1,0 +1,467 @@
+<div class="main-content">
+  <div class="container-fluid animated zoomIn">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card fadeIn first">
+          <div class="header">
+            <h4 class="title fadeIn second">Modifica tus direcciones y tu rol</h4>
+          </div>
+
+          <div class="content">
+            <form action="" method="" id="">
+
+              <div class="row">
+                <div class="col-md-5">
+
+                  <div class="form-group fadeIn second">
+                    <label>Direccion de Origen</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Direccion de Origen"
+                      id="dirOrigen"
+                      name="dirOrigen"
+                      [(ngModel)]="dirOrigen"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-5">
+                  <div class="form-group fadeIn second">
+                    <label>Direccion de Destino</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Direccion de Destino"
+                      id="dirDestino"
+                      name="dirDestino"
+                      [(ngModel)]="dirDestino"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <button
+                  class="btn btn-info btn-fill button2 margenbotondir fadeIn second"
+                  id="agregarDireccion"
+                  name="agregarDireccion"
+                  data-toggle="modal"
+                  data-target="#squarespaceModal"
+                >
+                  Agregar direcciones
+                </button>
+
+                <div class="clearfix"></div>
+
+                <!-- line modal -->
+                <div
+                  class="modal fade"
+                  id="squarespaceModal"
+                  tabindex="-1"
+                  role="document"
+                  aria-labelledby="modalLabel"
+                  aria-hidden="true"
+                  data-dismiss="modal"
+                  data-backdrop="false"
+                >
+                  <div
+                    class="
+                      modal-dialog
+                      animated
+                      zoomIn
+                      modal-dialog-centered modal-lg
+                    "
+                  >
+                    <div class="modal-content">
+
+                      <div class="modal-header fadeIn first">
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                        >
+                          <span aria-hidden="true">×</span
+                          ><span class="sr-only">Cerrar</span>
+                        </button>
+
+                        <h3 class="modal-title" id="lineModalLabel">
+                          <img
+                            src="../../assets/img/animat-camp/29 - Map.gif"
+                            alt=""
+                            width="80"
+                            height="75"
+                            class="d-inline-block align-top"
+                          />
+                          Agrega tu Ruta
+                        </h3>
+                      </div>
+
+                      <div class="modal-body">
+                        <!-- content goes here -->
+                        <form>
+
+                          <div class="form-group fadeIn second">
+                            <label for="origen">¿Donde estas?</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="origen"
+                              placeholder="¿Donde estas?"
+                            />
+                          </div>
+
+                          <div class="form-group fadeIn third">
+                            <label for="destino">¿Donde irás?</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="destino"
+                              placeholder="¿Donde irás?"
+                            />
+                          </div>
+
+                          <div id="mode-selector" class="controls fadeIn fourth">
+                            <button
+                              type="button"
+                              class="btn btn-info btn-fill button2"
+                              name="type"
+                              id="changemode-driving"
+                            >
+                              Calcular
+                            </button>
+                          </div>
+
+                          <div class="form-group fadeIn fourth" style="margin-top: 0.938em">
+                            <div>
+                              <ngui-map
+                                id="map"
+                                style="
+                                  height: 14.5em;
+                                  background-color: rgb(229, 227, 223);
+                                "
+                                (mapReady$)="onMapReady($event)"
+                                (mapClick)="onMapClick($event)"
+                                (idle)="onIdle($event)"
+                              >
+                                <marker
+                                  [position]="[latitudInicial, longitudInicial]"
+                                  title="Casa"
+                                  optimized="true"
+                                ></marker>
+                              </ngui-map>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div class="modal-footer fadeIn five">
+                        <button
+                          class="btn button3 cancelarModal btn-lg"
+                          id="cerrarModal"
+                          name="cerrarModal"
+                          type="button"
+                          data-dismiss="modal"
+                        >
+                          Cerrar
+                        </button>
+
+                        <button
+                          type="button"
+                          id="guardarDatos"
+                          class="btn button4 cancelarModal btn-lg"
+                          data-action="save"
+                          role="button"
+                          data-dismiss="modal"
+                          (click)="guardarDirecciones()"
+                        >
+                          guardar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group fadeIn third">
+                    <label>Hora de salida de Origen</label>
+                    <input
+                      type="time"
+                      ps-input-time
+                      format="hh:mm"
+                      class="form-control"
+                      placeholder="Hora de salida de Origen"
+                      id="horaSalidaOrigen"
+                      name="horaSalidaOrigen"
+                      [(ngModel)]="horaSalidaOrigen"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group fadeIn third">
+                    <label>Hora de salida de Destino</label>
+                    <input
+                      type="time"
+                      ps-input-time
+                      format="hh:mm"
+                      class="form-control"
+                      placeholder="Hora de salida de Destino"
+                      id="horaSalidaDestino"
+                      name="horaSalidaDestino"
+                      [(ngModel)]="horaSalidaDestino"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="div">
+                  <h4 class="title titulocarpooler fadeIn third" style="padding-bottom: 0%">
+                    ¿Quieres ser Carpooling?
+                  </h4>
+                </div>
+
+                <div
+                  class="form-check form-check-inline col-md-1 fadeIn third"
+                  style="margin-left: 42%"
+                >
+                  <input
+                    class="form-check-input fadeIn third"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    [value]="1"
+                    (click)="siCarpooling()"
+                    [(ngModel)]="tienePlaca"
+                  />
+
+                  <label
+                    class="form-check-label fadeIn third"
+                    for="inlineRadio1"
+                    style="margin-left: 15%; padding-top: 0%"
+                    >Si</label
+                  >
+                </div>
+
+                <div class="form-check form-check-inline col-md-1 fadeIn third">
+                  <input
+                    class="form-check-input fadeIn third"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    [value]="0"
+                    (click)="noCarpooling()"
+                    [(ngModel)]="tienePlaca"
+                  />
+
+                  <label
+                    class="form-check-label fadeIn third"
+                    for="inlineRadio2"
+                    style="margin-left: 5%; padding-top: 0%"
+                    >No</label
+                  >
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-3">
+
+                  <div class="form-group fadeIn fourth">
+                    <label>Placa</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Placa"
+                      id="placa"
+                      name="placa"
+                      maxlength="6"
+                      [(ngModel)]="placa"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group fadeIn fourth">
+                    <label>Cupos</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Cupos"
+                      id="cupos"
+                      name="cupos"
+                      maxlength="6"
+                      [(ngModel)]="cupos"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group fadeIn fourth">
+                    <label>Dias de servicio</label>
+                    <input
+                      type="button"
+                      class="form-control"
+                      placeholder="Dias de servicio"
+                      id="diasServicio"
+                      name="diasServicio"
+                      [(ngModel)]="diasServicio"
+                      data-toggle="modal"
+                      data-target="#dias"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+
+                  <div class="form-group fadeIn fourth">
+                    <label>Valor del viaje</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Total"
+                      id="total"
+                      name="total"
+                      [(ngModel)]="total"
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+
+                <div class="clearfix"></div>
+
+                <!-- line modal -->
+                <div
+                  class="modal fade"
+                  id="dias"
+                  tabindex="-1"
+                  role="document"
+                  aria-labelledby="modalLabel"
+                  aria-hidden="true"
+                  data-dismiss="modal"
+                  data-backdrop="false"
+                >
+                  <div
+                    class="
+                      modal-dialog
+                      animated
+                      zoomIn
+                      modal-dialog-centered modal-md
+                    "
+                  >
+                    <div class="modal-content">
+
+                      <div class="modal-header fadeIn first">
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                        >
+                          <span aria-hidden="true">×</span
+                          ><span class="sr-only">Cerrar</span>
+                        </button>
+
+                        <h3 class="modal-title" id="lineModalLabel">
+                          <img
+                            src="../../assets/img/animat-camp/07 - Calendar.gif"
+                            alt=""
+                            width="80"
+                            height="75"
+                            class="d-inline-block align-top"
+                          />
+                          ¿Que dias prestas servicio?
+                        </h3>
+                      </div>
+
+                      <div class="modal-body">
+                        <!-- content goes here -->
+
+                        <div class="container">
+
+                          <div class="row">
+
+                            
+                            
+                            <div class="checkbox fadeIn second"  style="margin-left: 7.813em;">
+                              <input class="checkbox" id="lunes" type="checkbox" [(ngModel)]="lunes" [ngModelOptions]="{standalone: true}" />
+                              <label class="checkbox" for="lunes"> Lunes </label>
+
+                              <input class="checkbox" id="martes" type="checkbox" [(ngModel)]="martes" [ngModelOptions]="{standalone: true}" />
+                              <label style="margin-left: 3.125em;" class="checkbox" for="martes" > Martes </label>
+
+                              <input class="checkbox" id="miercoles" type="checkbox" [(ngModel)]="miercoles" [ngModelOptions]="{standalone: true}" />
+                              <label style="margin-left: 3.125em;" class="checkbox" for="miercoles"> Miercoles </label>
+
+                              <input class="checkbox" id="jueves" type="checkbox" [(ngModel)]="jueves" [ngModelOptions]="{standalone: true}" />
+                              <label style="margin-left: 3.125em;" class="checkbox" for="jueves"> Jueves </label>
+
+                            </div>
+
+                            <div class="checkbox fadeIn third" style="margin-left: 10.625em; margin-top: 0.625em;">
+                              <input class="checkbox" id="viernes" type="checkbox" [(ngModel)]="viernes" [ngModelOptions]="{standalone: true}" />
+                              <label class="checkbox" for="viernes"> Viernes </label>
+
+                              <input class="checkbox" id="sabado" type="checkbox" [(ngModel)]="sabado" [ngModelOptions]="{standalone: true}" />
+                              <label style="margin-left: 3.125em;" class="checkbox" for="sabado"> Sabado </label>
+
+                              <input class="checkbox" id="domingo" type="checkbox" [(ngModel)]="domingo" [ngModelOptions]="{standalone: true}" />
+                              <label style="margin-left: 3.125em;" class="checkbox" for="domingo"> Domingo </label>
+
+                            </div>
+
+                          </div>
+                          
+                        </div>
+                        
+
+                      </div>
+
+                      <div class="modal-footer fadeIn fourth">
+                        <button
+                          class="btn button3 cancelarModal btn-lg"
+                          id="cerrarModal"
+                          name="cerrarModal"
+                          type="button"
+                          data-dismiss="modal"
+                        >
+                          Cerrar
+                        </button>
+
+                        <button
+                          type="button"
+                          id="guardarDatos"
+                          class="btn button4 cancelarModal btn-lg"
+                          data-action="save"
+                          role="button"
+                          data-dismiss="modal"
+                          (click)="guardarDias()"
+                        >
+                          guardar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+               
+
+              <button
+                type="submit"
+                class="btn btn-info btn-fill pull-right button fadeIn fourth"
+                id="botonDireccion"
+                name="botonDireccion"
+                (click)="actualizarDireccion('top', 'center')"
+              >
+                Modificar
+              </button>
+
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
