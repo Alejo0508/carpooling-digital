@@ -84,7 +84,7 @@ export class DireccionesComponent implements OnInit {
 
   ngOnInit() {
 
-    let recuperarStorage = JSON.parse( localStorage.getItem("datosSesion"));
+   let recuperarStorage = JSON.parse( localStorage.getItem("datosSesion"));
 
    let emailLogin, claveLogin
 
@@ -262,6 +262,13 @@ export class DireccionesComponent implements OnInit {
 
   }
 
+  // esta funcion redirije a la pagina recargandola sin que el usuario se de cuenta
+  redirectTo(uri:string){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([uri]));
+ }
+ 
+
   actualizarDireccion(from, align) {
 
 
@@ -290,6 +297,8 @@ export class DireccionesComponent implements OnInit {
           cupos = this.cupos;
         }
 
+
+        console.log("total total total", total)
        
 
       
@@ -322,12 +331,18 @@ export class DireccionesComponent implements OnInit {
             })
 
             if(tienePlaca1===1){
-              this.router.navigate(['/reservas'])
+             // this.router.navigate(['/reservas'])
+              this.redirectTo('/reservas');
             }else{
-              this.router.navigate(['/carpool'])
+             // this.router.navigate(['/carpool'])
+              this.redirectTo('/carpool');
+           
             }
+
+           
             
           }
+         
             console.log(dirOrigen1 + ' ' + dirDestino1 + ' ' + horaSalidaDestino1 + ' ' + horaSalidaOrigen1 + ' ' + placa1 + ' ' + tienePlaca1 + ' ' + this.emaillogin)
 
             recuperarStorage.dirOrigen = this.dirOrigen;
@@ -337,6 +352,7 @@ export class DireccionesComponent implements OnInit {
             recuperarStorage.carpooler = this.tienePlaca;
             recuperarStorage.placaCarro = this.placa;
             recuperarStorage.cupos = this.cupos;
+            recuperarStorage.total = this.total;
             recuperarStorage.diasServicio = this.diasServicio;
 
             

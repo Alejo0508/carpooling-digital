@@ -41,7 +41,7 @@ export class TablesComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+   
 
 
     let respuesta2
@@ -56,6 +56,8 @@ export class TablesComponent implements OnInit {
     this.carpooler = recuperarStorage.carpooler
 
     if (recuperarStorage.carpooler === 0) {
+
+
 
       let reserva = 0;
       let inscribir = 0
@@ -84,6 +86,8 @@ export class TablesComponent implements OnInit {
 
       
     } else {
+
+      
 
       let inscribir = 0;
       let emailLogin;

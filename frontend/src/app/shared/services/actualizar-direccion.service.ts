@@ -14,11 +14,7 @@ export class ActualizarDireccionService {
   postDireccion(dirOrigen, dirDestino, horaSalidaDestino, horaSalidaOrigen, placaCarro, cupos, carpooler, email, total, diasServicio): Observable<any> {
 
 
-    console.log("carppooler en service", carpooler )
-    console.log("dirDestino en service", dirDestino )
-    console.log("horaSalidaOrigen en service", horaSalidaOrigen )
-    console.log("horaSalidaDestino en service", horaSalidaDestino)
-    console.log("placaCarro en service", placaCarro)
+    console.log("total total en service", total)
 
     let userDireccion = {
       dirDestino,

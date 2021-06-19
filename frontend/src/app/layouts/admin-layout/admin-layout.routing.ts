@@ -36,7 +36,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reservas',          component: TablesComponent },
    //{ path: 'tipografia',     component: TypographyComponent },
    // { path: 'iconos',          component: IconsComponent },
-    { path: 'mapas',           component: MapsComponent },
+    //{ path: 'mapas',           component: MapsComponent },
    // { path: 'notificacion',  component: NotificationsComponent },
     { path: 'nosotros',  component: NosotrosComponent },
   //  { path: 'github', component: RedirectComponent },
