@@ -18,6 +18,8 @@ import { BrowserModule } from '@angular/platform-browser'
 import { AuthGuard } from './shared/guards/auth.guard';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { NgxWhastappButtonModule } from "ngx-whatsapp-button";
+import { FilterPipe } from './shared/pipes/filter.pipe';
+
 
 @NgModule({
   imports: [
@@ -39,7 +41,8 @@ import { NgxWhastappButtonModule } from "ngx-whatsapp-button";
     NosotrosComponent,
     CalculadoraComponent,
    // DireccionesComponent,
-    RegistrarComponent
+    RegistrarComponent,
+   //FilterPipe
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],

@@ -16,6 +16,7 @@ declare var $:any;
 
 
 export class UserComponent implements OnInit {
+  [x: string]: any;
 
 
   emailbase: any;
@@ -25,6 +26,7 @@ export class UserComponent implements OnInit {
   documento: any;
   email: any;
   foto: any;
+
 
   resultadoBusqueda: any;
   
@@ -49,10 +51,17 @@ export class UserComponent implements OnInit {
       this.telefono = recuperarStorage.telefono;
       this.documento = recuperarStorage.documento;
       this.email = recuperarStorage.email;
-      this.foto = recuperarStorage.foto;
 
 
-      console.log(recuperarStorage.foto)
+      if (recuperarStorage.foto == '' || recuperarStorage.foto == null) {
+          this.foto = "assets/img/faces/avatar.png"
+      }else {
+        this.foto = recuperarStorage.foto;
+      }
+      
+  
+
+      
 
    
 

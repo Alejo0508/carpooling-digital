@@ -8,7 +8,7 @@ import { LoginService } from "app/shared/services/login.service";
 import Swal from "sweetalert2";
 import { Router } from "@angular/router";
 import { AnyTxtRecord } from "dns";
-
+ 
 declare var $: any;
 
 @Component({
@@ -54,14 +54,18 @@ export class HomeComponent implements OnInit {
   emailModal: any;
   idModal: any;
   cuposModal: any;
+  filterPost = '';
 
   constructor(
     private service: ReservasService,
     private datosLogin: LoginService,
     private router: Router
-  ) {}
 
+  ) {}
+ 
   ngOnInit() {
+
+   
 
     let respuesta2;
     let emailLogin2 = this.datosLogin.email;

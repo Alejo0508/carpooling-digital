@@ -15,19 +15,14 @@
               alinearbuscartexto
               form-control form-control-lg form-control-borderless
             "
-            type="search"
+            type="text"
             placeholder="Busca un transporte cerca"
+            name="filterPost"
+            [(ngModel)]="filterPost"
+
           />
         </div>
 
-        <div class="col-auto">
-          <button
-            class="btn btn-lg btn-primary alinearbuscarboton button"
-            type="submit"
-          >
-            Buscar
-          </button>
-        </div>
       </div>
     </form>
   </div>
@@ -37,7 +32,7 @@
   <div class="container-fluid animated fadeIn">
     <div class="row">
       <div class="col-md-12">
-        <div class="card justicarcards2" *ngFor="let carpoolers of carpooler">
+        <div class="card justicarcards2" *ngFor="let carpoolers of carpooler | filter:filterPost ">
           <div class="col-md-4 justificadocards">
             <div class="card card-user animated zoomIn">
               <div class="image">
@@ -47,9 +42,15 @@
                 <div class="author">
                   <img
                     class="avatar border-gray"
-                    src="assets/img/faces/face-1.jpg"
-                    alt="..."
+                    *ngIf="carpoolers.foto == '' " src="assets/img/faces/avatar.jpg"
                   />
+                  <img
+                  class="avatar border-gray"
+                  *ngIf="carpoolers.foto" src="{{ carpoolers.foto }}"
+                  alt="..."
+                />
+
+                  
                   <h4 class="title">
                     {{ carpoolers.nombre }} {{ carpoolers.apellido }}<br />
                     <small>Telefono: {{ carpoolers.telefono }}</small

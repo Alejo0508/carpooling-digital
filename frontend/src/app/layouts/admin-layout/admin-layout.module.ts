@@ -16,6 +16,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { DireccionesComponent } from '../../direcciones/direcciones.component';
+import { FilterPipe } from 'app/shared/pipes/filter.pipe';
 
 
 
@@ -36,7 +37,8 @@ import { DireccionesComponent } from '../../direcciones/direcciones.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    DireccionesComponent
+    DireccionesComponent,
+    FilterPipe
   ]
 })
 
