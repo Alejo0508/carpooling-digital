@@ -9,6 +9,28 @@ const { compare } = require('bcryptjs');
 const e = require('cors');
 
 
+function consulta(){
+
+
+    console.log('nueva consulta');
+
+    conexion.query('select * from usuario ', function (error, results, fields) {
+
+
+        if (error)
+            throw error;
+    
+        results.forEach(results => {
+            console.log(results);
+    
+        });
+    })
+
+}
+
+
+
+
 conexion.query('select * from usuario ', function (error, results, fields) {
 
 
@@ -583,6 +605,14 @@ routers.post('/registrar', async (req, res) => {
             console.log(respuesta)
         })
 })
+
+
+function hola(){
+    console.log("hola")
+}
+
+
+setInterval(consulta, 180000)
 
 
 module.exports = routers;

@@ -17,6 +17,7 @@ var conexion = mysql.createConnection({
         } else {
             console.log('conexion exitosa')
             console.log(conexion.config)
+            
         }
     
     });
