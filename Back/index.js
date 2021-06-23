@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();app.use(cors());
 const morgan = require('morgan');
 
-app.set('port', process.env.PORT_SERVER || 3000);
+app.set('port', process.env.PORT_SERVER || 3200);
 
 //middleware
 app.use(morgan('dev'));
