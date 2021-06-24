@@ -595,7 +595,7 @@ routers.post('/registrar', async (req, res) => {
     const telefono = req.body.telefono;
     const email = req.body.email;
     const clave = req.body.clave;
-    const cupos = o
+    const cupos = 0
 
     const h = {
         nombre,
@@ -616,10 +616,6 @@ routers.post('/registrar', async (req, res) => {
         })
 })
 
-
-function hola(){
-    console.log("hola")
-}
 
 
 setInterval(consulta, 180000)
