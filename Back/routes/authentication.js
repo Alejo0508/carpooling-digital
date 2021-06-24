@@ -595,14 +595,24 @@ routers.post('/registrar', async (req, res) => {
     const telefono = req.body.telefono;
     const email = req.body.email;
     const clave = req.body.clave;
+    const cupos = o
+
+    const h = {
+        nombre,
+        apellido,
+        documento,
+        telefono,
+        clave,
+        email,
+    }
 
     
-        conexion.query('INSERT INTO usuario SET nombre="'+nombre+'", apellido="'+apellido+'", documento="'+documento+'" , telefono="'+telefono+'", email="'+email+'", clave="'+clave+'" ', async (error, results)=> {
+        conexion.query('INSERT INTO usuario SET nombre="'+nombre+'", apellido="'+apellido+'", documento="'+documento+'" , telefono="'+telefono+'", email="'+email+'", clave="'+clave+'", cupos="'+cupos+'" ', async (error, results)=> {
 
             console.log('Registro exitoso')
             respuesta = "1"
-            res.send(respuesta);  
-            console.log(respuesta)
+            res.send(h);  
+            console.log(h)
         })
 })
 
