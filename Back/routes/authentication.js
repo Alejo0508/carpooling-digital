@@ -611,8 +611,8 @@ routers.post('/registrar', async (req, res) => {
 
             console.log('Registro exitoso')
             respuesta = "1"
-            res.send(h);  
-            console.log(h)
+            res.send(respuesta);  
+            console.log(respuesta)
         })
 })
 
