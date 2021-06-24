@@ -54,7 +54,7 @@ export class UserComponent implements OnInit {
 
 
       if (recuperarStorage.foto == '' || recuperarStorage.foto == null) {
-          this.foto = "assets/img/faces/avatar.png"
+          this.foto = "assets/img/faces/avatar.jpg"
       }else {
         this.foto = recuperarStorage.foto;
       }
