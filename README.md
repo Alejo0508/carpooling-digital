@@ -72,7 +72,7 @@ en la carpeta **BackEnd** abrimos una consola y pondremos los siguientes comando
 - **Cambiar mis datos personales:** en la parte superior izquierda veras el campo *Cuenta*, podras cambiar tus datos personales, das clic en actualiar para guardar los cambios.
 
 
-###NOTA:
+### NOTA:
 
 Si en algun momento los estilos o el mapa no muestra tu hubicacion actualiza la pagina.
 
