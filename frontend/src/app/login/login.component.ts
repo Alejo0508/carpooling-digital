@@ -43,6 +43,51 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
 
+    let dark = localStorage.getItem("darmod")
+
+    const botonSwitch = document.getElementById('switch');
+    const navbar = document.getElementsByTagName('nav')[0];
+    const body = document.getElementsByTagName('body')[0];
+    const form = document.getElementsByTagName('form');
+
+    const cardHome = document.getElementsByTagName("div");
+    const inputs = document.getElementsByTagName("input");
+    const modal = document.getElementsByTagName("modal");
+    const h4 = document.getElementsByTagName("h4");
+    const h3 = document.getElementsByTagName("h3");
+
+    const direcciones = document.getElementsByTagName('div');
+
+
+    for (let i = 0; i < cardHome.length; i++){
+
+      cardHome[i].classList.add(dark);
+  }
+
+    for (let i = 0; i < direcciones.length; i++){
+
+        direcciones[i].classList.add(dark);
+    }
+
+    for (let i = 0; i < form.length; i++){
+
+      form[i].classList.add(dark);
+  }
+
+
+  for (let i = 0; i < h4.length; i++){
+
+    h4[i].classList.add(dark);
+}
+
+for (let i = 0; i < h3.length; i++){
+
+  h3[i].classList.add(dark);
+}
+
+    body.classList.add(dark);
+
+
   }
 
 

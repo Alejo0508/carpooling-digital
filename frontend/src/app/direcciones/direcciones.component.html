@@ -156,6 +156,19 @@
                       </div>
 
                       <div class="modal-footer fadeIn five">
+
+                        <button
+                        type="button"
+                        id="guardarDatos"
+                        class="btn button4 cancelarModal btn-lg"
+                        data-action="save"
+                        role="button"
+                        data-dismiss="modal"
+                        (click)="guardarDirecciones()"
+                      >
+                        guardar
+                      </button>
+
                         <button
                           class="btn button3 cancelarModal btn-lg"
                           id="cerrarModal"
@@ -165,18 +178,7 @@
                         >
                           Cerrar
                         </button>
-
-                        <button
-                          type="button"
-                          id="guardarDatos"
-                          class="btn button4 cancelarModal btn-lg"
-                          data-action="save"
-                          role="button"
-                          data-dismiss="modal"
-                          (click)="guardarDirecciones()"
-                        >
-                          guardar
-                        </button>
+   
                       </div>
                     </div>
                   </div>
@@ -419,16 +421,8 @@
                       </div>
 
                       <div class="modal-footer fadeIn fourth">
-                        <button
-                          class="btn button3 cancelarModal btn-lg"
-                          id="cerrarModal"
-                          name="cerrarModal"
-                          type="button"
-                          data-dismiss="modal"
-                        >
-                          Cerrar
-                        </button>
 
+                        
                         <button
                           type="button"
                           id="guardarDatos"
@@ -440,6 +434,17 @@
                         >
                           guardar
                         </button>
+
+                        <button
+                          class="btn button3 cancelarModal btn-lg"
+                          id="cerrarModal"
+                          name="cerrarModal"
+                          type="button"
+                          data-dismiss="modal"
+                        >
+                          Cerrar
+                        </button>
+
                       </div>
                     </div>
                   </div>

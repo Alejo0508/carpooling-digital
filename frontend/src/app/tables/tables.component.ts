@@ -41,7 +41,37 @@ export class TablesComponent implements OnInit {
 
   ngOnInit(): void {
 
-   
+    let dark = localStorage.getItem("darmod")
+
+    const input = document.getElementsByTagName('form')[0];
+
+    const cardHome = document.getElementsByTagName("div");
+    const inputs = document.getElementsByTagName("input");
+    const h4 = document.getElementsByTagName("h4");
+
+    const direcciones = document.getElementsByTagName('div');
+
+    for (let i = 0; i < cardHome.length; i++){
+
+      cardHome[i].classList.add(dark);
+  }
+
+    for (let i = 0; i < direcciones.length; i++){
+
+        direcciones[i].classList.add(dark);
+    }
+
+    for (let i = 0; i < inputs.length; i++){
+
+      inputs[i].classList.add(dark);
+  }
+
+  for (let i = 0; i < h4.length; i++){
+
+    h4[i].classList.add(dark);
+}
+
+    input.classList.add(dark);
 
 
     let respuesta2

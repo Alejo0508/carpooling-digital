@@ -37,6 +37,81 @@ export class NavbarComponent implements OnInit{
 
     }
 
+
+    btnSwitch(){
+        
+        let darkmod = "dark"
+
+        localStorage.setItem("darmod", (darkmod))
+
+        const botonSwitch = document.getElementById('switch');
+        const navbar = document.getElementsByTagName('nav')[0];
+        const body = document.getElementsByTagName('body')[0];
+        const input = document.getElementsByTagName('form')[0];
+        const cardHome = document.getElementsByTagName('form')[1].querySelectorAll('div');
+
+        const direcciones = document.getElementsByTagName('div');
+   
+
+        for (let i = 0; i < direcciones.length; i++){
+
+            direcciones[i].classList.add(localStorage.getItem("darmod"));
+        }
+
+        input.classList.add(localStorage.getItem("darmod"));
+        body.classList.add(localStorage.getItem("darmod"));
+        navbar.classList.add(localStorage.getItem("darmod"));
+        botonSwitch.classList.add(localStorage.getItem("darmod"));
+
+    }
+
+
+    btnSwitchlisgth(){
+
+
+        let light = localStorage.getItem("darmod")
+
+        const botonSwitch = document.getElementById('switch');
+        const navbar = document.getElementsByTagName('nav')[0];
+        const body = document.getElementsByTagName('body')[0];
+        const input = document.getElementsByTagName('form')[0];
+    
+        const cardHome = document.getElementsByTagName("div");
+        const inputs = document.getElementsByTagName("input");
+        const h4 = document.getElementsByTagName("h4");
+    
+        const direcciones = document.getElementsByTagName('div');
+    
+        for (let i = 0; i < cardHome.length; i++){
+    
+          cardHome[i].classList.remove("dark")
+      }
+    
+        for (let i = 0; i < direcciones.length; i++){
+    
+            direcciones[i].classList.remove("dark")
+        }
+    
+        for (let i = 0; i < inputs.length; i++){
+    
+          inputs[i].classList.remove("dark")
+      }
+    
+      for (let i = 0; i < h4.length; i++){
+    
+        h4[i].classList.remove("dark")
+    }  
+
+
+        input.classList.remove("dark")
+        navbar.classList.remove("dark")
+        body.classList.remove("dark")
+
+        localStorage.removeItem("darmod")
+
+    }
+    
+
     cerrarSesion(){
 
     localStorage.removeItem("datosSesion");

@@ -65,6 +65,45 @@ export class HomeComponent implements OnInit {
  
   ngOnInit() {
 
+
+
+    let dark = localStorage.getItem("darmod")
+
+    const botonSwitch = document.getElementById('switch');
+    const navbar = document.getElementsByTagName('nav')[0];
+    const body = document.getElementsByTagName('body')[0];
+    const form = document.getElementsByTagName('form');
+    const a = document.getElementsByTagName('a');
+    const h4 = document.getElementsByTagName('h4');
+
+    const cardHome = document.getElementsByTagName("div");
+
+    const direcciones = document.getElementsByTagName('div');
+
+    for (let i = 0; i < cardHome.length; i++){
+
+      cardHome[i].classList.add(dark);
+  }
+
+    for (let i = 0; i < direcciones.length; i++){
+
+        direcciones[i].classList.add(dark);
+    }
+
+    for (let i = 0; i < form.length; i++){
+
+      form[i].classList.add(dark);
+  }
+
+  for (let i = 0; i < h4.length; i++){
+
+    h4[i].classList.add(dark);
+}
+
+    body.classList.add(dark);
+    navbar.classList.add(dark);
+    botonSwitch.classList.add(dark);
+
    
 
     let respuesta2;
