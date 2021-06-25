@@ -71,6 +71,11 @@ en la carpeta **BackEnd** abrimos una consola y pondremos los siguientes comando
   - al darle clic en actualziar cambiras tu rol.
 - **Cambiar mis datos personales:** en la parte superior izquierda veras el campo *Cuenta*, podras cambiar tus datos personales, das clic en actualiar para guardar los cambios.
 
+
+###NOTA:
+
+Si en algun momento los estilos o el mapa no muestra tu hubicacion actualiza la pagina.
+
 ## Usuarios para comenzar a usar la app
 
 todos estos usuarios podran ser carpoolers y usuarios, dentro la app podras cambiar el rol como mejor te parezca, aca un listado de los usuarios registrados hasta el momento aunque tambien podras registrar uno nuevo desde la pagina de login.
