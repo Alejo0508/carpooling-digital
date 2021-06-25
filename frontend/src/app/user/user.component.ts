@@ -86,7 +86,6 @@ export class UserComponent implements OnInit {
     
     let respuesta;
 
-    localStorage.setItem("datosSesion.telefono", this.telefono );
 
     this.service.postUsuario(email1, nombre1, apellido1, documento1, telefono1).subscribe(data=> {
 
@@ -116,12 +115,16 @@ export class UserComponent implements OnInit {
           showConfirmButton: false,
           timer: 1300
         })
-          
-          this.router.navigate(['/carpool'])
+           
   
       }
 
-     
+     if (recuperarStorage.carpooler==0){
+      this.router.navigate(['/carpool'])
+     }
+     else{
+      this.router.navigate(['/reservas'])
+     }
 
       recuperarStorage.nombre = this.nombre;
       recuperarStorage.apellido = this.apellido;

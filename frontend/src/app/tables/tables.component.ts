@@ -208,7 +208,9 @@ export class TablesComponent implements OnInit {
       for (let elemento of respuesta) {
         
 
-        if( idUsuario3 = elemento.idUsuario ){
+console.log("emailcarpooleremailcarpooleremailcarpooleremailcarpooler", elemento.emailCarpooler)
+
+        if( idUsuario3 == elemento.idUsuario && emailCarpooler == elemento.emailCarpooler ){
 
           cuposCancelar = cuposcarpooler + elemento.cuposReserva
           
