@@ -30,20 +30,17 @@
 
                                 <tbody class="fadeIn third">
                                     <tr *ngFor="let reserva of reservas" >
-                                        <td>{{reserva.nombre}}</td>
-                                        <td>{{reserva.documento}}</td>
-                                        <td>{{reserva.telefono}}</td>
-                                        <td>{{reserva.horaSalidaOrigen}}</td>
-                                        <td>{{reserva.horaSalidaDestino}}</td>
-                                        <td *ngIf="carpooler==0">{{reserva.diasServicio}}</td>
-                                        <td *ngIf="carpooler==1">{{reserva.cuposReserva}}</td>
-                                        <td *ngIf="carpooler==1">{{toalCarpooler}}</td>
-                                        <td *ngIf="carpooler==0">{{reserva.total}}</td>
+                                        <td class="darktable" >{{reserva.nombre}}</td>
+                                        <td class="darktable">{{reserva.documento}}</td>
+                                        <td class="darktable">{{reserva.telefono}}</td>
+                                        <td class="darktable">{{reserva.horaSalidaOrigen}}</td>
+                                        <td class="darktable">{{reserva.horaSalidaDestino}}</td>
+                                        <td class="darktable" *ngIf="carpooler==0">{{reserva.diasServicio}}</td>
+                                        <td class="darktable" *ngIf="carpooler==1">{{reserva.cuposReserva}}</td>
+                                        <td class="darktable" *ngIf="carpooler==1">{{toalCarpooler}}</td>
+                                        <td class="darktable" *ngIf="carpooler==0">{{reserva.total}}</td>
                                         <td>
-
-                                            
-
-                                            <a class="fadeIn fourth" type="button" target="_blank" [href]="'https://api.whatsapp.com/send?phone=+57'+reserva.telefono" ><img src="../../assets/img/animat-camp/whatsapp.gif"
+                                            <a class="fadeIn fourth" type="button" target="_blank" [href]="'https://api.whatsapp.com/send?phone=+57'+reserva.telefono" ><img src="../../assets/img/animat-camp/whatsapp.png"
                                                 alt="" width="40" height="40" class="d-inline-block align-top " ></a>
  
                                              <jjva-ngx-whatsapp-button [ngx_whatsapp_phone]="phone" [ngx_whatsapp_text]="title"></jjva-ngx-whatsapp-button>
@@ -53,6 +50,7 @@
                                              name="botonDireccion" (click)="putReserva(reserva.email,reserva.idUsuario,reserva.cupos)" >Cancelar</button>
     
                                         </td>
+                                        
 
                                   <!--     <td >
                                             <button type="submit" class="btn btn-info btn-fill button fadeIn fourth" id="botonDireccion"

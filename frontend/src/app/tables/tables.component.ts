@@ -43,35 +43,17 @@ export class TablesComponent implements OnInit {
 
     let dark = localStorage.getItem("darmod")
 
-    const input = document.getElementsByTagName('form')[0];
+    const body = document.getElementsByTagName('body')[0];
+    const navbar = document.getElementsByTagName('nav')[0];
+    const div = document.getElementsByTagName("div");
 
-    const cardHome = document.getElementsByTagName("div");
-    const inputs = document.getElementsByTagName("input");
-    const h4 = document.getElementsByTagName("h4");
+    for (let i = 0; i < div.length; i++){
 
-    const direcciones = document.getElementsByTagName('div');
-
-    for (let i = 0; i < cardHome.length; i++){
-
-      cardHome[i].classList.add(dark);
+      div[i].classList.add(dark);
   }
 
-    for (let i = 0; i < direcciones.length; i++){
-
-        direcciones[i].classList.add(dark);
-    }
-
-    for (let i = 0; i < inputs.length; i++){
-
-      inputs[i].classList.add(dark);
-  }
-
-  for (let i = 0; i < h4.length; i++){
-
-    h4[i].classList.add(dark);
-}
-
-    input.classList.add(dark);
+    navbar.classList.add(dark);
+    body.classList.add(dark);
 
 
     let respuesta2
@@ -140,6 +122,7 @@ export class TablesComponent implements OnInit {
 
 
   }
+  
 
   prueba(emailcarpooler, idcarpooler,cuposcarpooler){
 

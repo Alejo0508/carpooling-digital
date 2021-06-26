@@ -28,12 +28,10 @@ export class NavbarComponent implements OnInit{
     }
 
     ngOnInit(){
+
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-
-
-
 
     }
 
@@ -48,8 +46,6 @@ export class NavbarComponent implements OnInit{
         const navbar = document.getElementsByTagName('nav')[0];
         const body = document.getElementsByTagName('body')[0];
         const input = document.getElementsByTagName('form')[0];
-        const cardHome = document.getElementsByTagName('form')[1].querySelectorAll('div');
-
         const direcciones = document.getElementsByTagName('div');
    
 
