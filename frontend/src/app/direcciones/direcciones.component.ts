@@ -179,7 +179,7 @@ for (let i = 0; i < h3.length; i++){
 
         this.tienePlaca = 0;
         this.placa = ' ';
-        this.total = ' ';
+        this.total = '5555 ';
         this.diasServicio = ' ';
         this.cupos = ' ';
 
