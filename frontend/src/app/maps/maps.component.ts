@@ -47,6 +47,10 @@ export class MapsComponent implements OnInit {
   map: google.maps.Map;
   modeSelector:any;
 
+
+  x: any;
+  y: any;
+
   constructor() { 
 
   }
@@ -54,6 +58,8 @@ export class MapsComponent implements OnInit {
   
 
   ngOnInit() { 
+
+ 
 
     //esto iria en el html en el ngui-map [options]="mapOptions"
     //aca se manda las opciones al ngui-map this.mapOptions = [latitud1, longitud1, zoom]
@@ -85,15 +91,12 @@ export class MapsComponent implements OnInit {
     });
 
 
-  }
+    }
 
 
   onMapReady(map) {
-
-
-
-
-
+    
+    let recuperarStorage = JSON.parse( localStorage.getItem("datosSesion"));
 
     console.log('map', map);
     console.log('markers', map.markers); 
@@ -114,7 +117,7 @@ export class MapsComponent implements OnInit {
     ) as HTMLInputElement;
 
     this.modeSelector = document.getElementById(
-      "calcular"
+      "mode-selector"
     ) as HTMLSelectElement;
 
 
@@ -128,6 +131,11 @@ export class MapsComponent implements OnInit {
     this.setupClickListener(
       "changemode-driving",
       google.maps.TravelMode.DRIVING
+    );
+
+    this.setupClickListener(
+      "changemode-walking",
+      google.maps.TravelMode.WALKING
     );
 
     this.setupPlaceChangedListener(originAutocomplete, "ORIG", map);
@@ -154,6 +162,38 @@ export class MapsComponent implements OnInit {
     });
   }
 
+  setupPlaceChangedListener(
+
+    autocomplete: google.maps.places.Autocomplete,
+    mode: string,
+    map: google.maps.Map
+  ) {
+
+    autocomplete.bindTo("bounds", map);
+
+    autocomplete.addListener("place_changed", () => {
+      const place = autocomplete.getPlace();
+
+      if (!place.place_id) {
+        window.alert("Please select an option from the dropdown list.");
+        return;
+      }
+
+      if (mode === "ORIG") {
+
+        this.originPlaceId = place.place_id;
+
+        console.log(this.originPlaceId)
+       
+      }else {
+        this.destinationPlaceId = place.place_id;
+
+        console.log(this.destinationPlaceId)
+
+      }
+      this.route();
+    });
+  }
 
   geocodePlaceId(
     geocoder: google.maps.Geocoder,
@@ -216,38 +256,7 @@ export class MapsComponent implements OnInit {
 
   }
 
-  setupPlaceChangedListener(
 
-    autocomplete: google.maps.places.Autocomplete,
-    mode: string,
-    map: google.maps.Map
-  ) {
-
-    autocomplete.bindTo("bounds", map);
-
-    autocomplete.addListener("place_changed", () => {
-      const place = autocomplete.getPlace();
-
-      if (!place.place_id) {
-        window.alert("Please select an option from the dropdown list.");
-        return;
-      }
-
-      if (mode === "ORIG") {
-
-        this.originPlaceId = place.place_id;
-
-        console.log(this.originPlaceId)
-       
-      }else {
-        this.destinationPlaceId = place.place_id;
-
-        console.log(this.destinationPlaceId)
-
-      }
-
-    });
-  }
 
   onIdle(event) {
     //console.log('map ubicacion', event.target);

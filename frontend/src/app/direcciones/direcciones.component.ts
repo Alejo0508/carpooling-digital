@@ -482,6 +482,41 @@ for (let i = 0; i < h3.length; i++){
     });
   }
 
+  setupPlaceChangedListener(
+
+    autocomplete: google.maps.places.Autocomplete,
+    mode: string,
+    map: google.maps.Map
+  ) {
+
+    autocomplete.bindTo("bounds", map);
+
+    autocomplete.addListener("place_changed", () => {
+      const place = autocomplete.getPlace();
+
+      if (!place.place_id) {
+        window.alert("Please select an option from the dropdown list.");
+        return;
+      }
+
+      if (mode === "ORIG") {
+
+        this.originPlaceId = place.place_id;
+
+        console.log(this.originPlaceId)
+       
+      }else {
+        this.destinationPlaceId = place.place_id;
+
+        console.log(this.destinationPlaceId)
+
+      }
+
+      this.route();
+
+    });
+  }
+
 
   geocodePlaceId(
     geocoder: google.maps.Geocoder,
@@ -544,39 +579,7 @@ for (let i = 0; i < h3.length; i++){
 
   }
 
-  setupPlaceChangedListener(
-
-    autocomplete: google.maps.places.Autocomplete,
-    mode: string,
-    map: google.maps.Map
-  ) {
-
-    autocomplete.bindTo("bounds", map);
-
-    autocomplete.addListener("place_changed", () => {
-      const place = autocomplete.getPlace();
-
-      if (!place.place_id) {
-        window.alert("Please select an option from the dropdown list.");
-        return;
-      }
-
-      if (mode === "ORIG") {
-
-        this.originPlaceId = place.place_id;
-
-        console.log(this.originPlaceId)
-       
-      }else {
-        this.destinationPlaceId = place.place_id;
-
-        console.log(this.destinationPlaceId)
-
-      }
-
-    });
-  }
-
+ 
   onIdle(event) {
     //console.log('map ubicacion', event.target);
 

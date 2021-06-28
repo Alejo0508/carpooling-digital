@@ -19,11 +19,18 @@
   <input type="text" id="destino" placeholder="destino" />
 
   <div id="mode-selector" class="controls">
-    <button type="button" name="type" id="changemode-driving">Calcular</button>
-    <button type="button" name="type" id="dato" (Click)="(ngOnInit)">
-      dato
-    </button>
+    <input
+      type="radio"
+      name="type"
+      id="changemode-walking"
+      
+    />
+    <label for="changemode-walking">Walking</label>
+
+    <input type="radio" name="type" id="changemode-driving" checked/>
+    <label for="changemode-driving">Driving</label>
   </div>
+</div>
 
   <div class="main-content">
     <ngui-map
@@ -56,4 +63,4 @@
           ></marker> -->
     </ngui-map>
   </div>
-</div>
+
