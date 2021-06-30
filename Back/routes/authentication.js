@@ -469,9 +469,9 @@ routers.get('/infoReservas', async (req, res) => {
 
     const reserva = req.query.reserva;
     const email = req.query.email;
-    const idCarpooler = req.query.idCarpooler;
+    const inscribir = 0;
 
-    conexion.query('SELECT * FROM inforeserva INNER JOIN usuario on usuario.idUsuario = inforeserva.idUsuario2 WHERE inforeserva.reserva="'+reserva+'" and inforeserva.emailCliente="'+email+'"', async (error, results, fields) => {
+    conexion.query('SELECT * FROM inforeserva INNER JOIN usuario on usuario.idUsuario = inforeserva.idUsuario2 INNER JOIN inscribir on inscribir.emailCarpooler = usuario.email WHERE inforeserva.reserva="'+reserva+'" and inforeserva.emailCliente="'+email+'" and inscribir.inscribir="'+inscribir+'" ', async (error, results, fields) => {
         
         if (error)
         throw error;

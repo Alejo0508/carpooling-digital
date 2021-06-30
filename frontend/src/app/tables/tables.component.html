@@ -20,9 +20,12 @@
                                         <th scope="col">Hora de salida casa</th>
                                         <th scope="col">Hora de salida trabajo</th>
                                         <th scope="col" *ngIf="carpooler==0">Dias reservados</th>
+                                        <th scope="col" >Valor por Cupo</th>
                                         <th scope="col" *ngIf="carpooler==1">Cupos reservados</th>
+                                        <th scope="col" *ngIf="carpooler==0">Cupos reservados</th>
                                         <th scope="col" *ngIf="carpooler==1">Total a pagar</th>
                                         <th scope="col" *ngIf="carpooler==0">Total a pagar</th>
+                                        
                                         <th scope="col">Contactalo</th>
                                         <th scope="col" *ngIf="carpooler==0">Cancelar viaje</th>
                                     </tr>
@@ -36,9 +39,12 @@
                                         <td class="darktable">{{reserva.horaSalidaOrigen}}</td>
                                         <td class="darktable">{{reserva.horaSalidaDestino}}</td>
                                         <td class="darktable" *ngIf="carpooler==0">{{reserva.diasServicio}}</td>
-                                        <td class="darktable" *ngIf="carpooler==1">{{reserva.cuposReserva}}</td>
                                         <td class="darktable" *ngIf="carpooler==1">{{toalCarpooler}}</td>
                                         <td class="darktable" *ngIf="carpooler==0">{{reserva.total}}</td>
+                                        <td class="darktable" *ngIf="carpooler==1">{{reserva.cuposReserva}}</td>
+                                        <td class="darktable" *ngIf="carpooler==0">{{reserva.cuposReserva}}</td>
+                                        <td class="darktable" *ngIf="carpooler==1">{{toalCarpooler * reserva.cuposReserva }}</td>
+                                        <td class="darktable" *ngIf="carpooler==0">{{reserva.total * reserva.cuposReserva}}</td>
                                         <td>
                                             <a class="fadeIn fourth" type="button" target="_blank" [href]="'https://api.whatsapp.com/send?phone=+57'+reserva.telefono" ><img src="../../assets/img/animat-camp/whatsapp.png"
                                                 alt="" width="40" height="40" class="d-inline-block align-top " ></a>
